@@ -1,0 +1,6 @@
+== Welcome to Matchi
+
+During lunches we enjoy playing a pick-up game of soccer. Each day one person will select teams based upon their intuition of peoples' skills. In general this works, but some days the teams can be horribly unbalanced. This makes for a less than enjoyable lunch break.
+
+Your assignment is to develop a web application to select the most balanced teams based upon which players are participating on a given day. Player statistics should be stored in a database. Team roster, team goals, player goals, and player assists should be tracked. There does not need to be an interface for entering this data. Upon visiting the app, the user should be allowed to select the players available that day. When this form is submitted, the user should be taken to a page displaying the teams that will produce the most competitive game.
+
