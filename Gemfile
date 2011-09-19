@@ -31,3 +31,8 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
+
+# For heroku
+group :production do
+  gem 'pg'
+end
