@@ -5,3 +5,5 @@
  *= require_self
  *= require_tree . 
 */
+tr.item_odd { background: #d6ddf0; }
+tr.item_even { background: #ffffff; }
