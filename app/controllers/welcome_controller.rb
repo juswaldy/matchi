@@ -46,11 +46,11 @@ class WelcomeController < ApplicationController
     msg += success.join(' and ')
     msg += " data!"
     @message.push(msg)
-    game = Game.new(params[:game])
-    game.team1id = team1.id
-    game.team2id = team2.id
+    @game = Game.new(params[:game])
+    @game.team1id = team1.id
+    @game.team2id = team2.id
     msg = ''
-    if game.save
+    if @game.save
       msg += 'Success'
     else
       msg += 'Failure'
