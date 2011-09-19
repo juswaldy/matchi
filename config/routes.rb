@@ -7,6 +7,8 @@ Matchi::Application.routes.draw do
 
   get "welcome/index"
   get "welcome/availability"
+  post "welcome/suggestion"
+  post "welcome/accept"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

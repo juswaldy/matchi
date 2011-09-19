@@ -1,0 +1,46 @@
+<h1>Matchi</h1>
+<%= form_tag '/welcome/accept', :method => :post, :onsubmit => 'return validate()' %>
+Date of match: <%= date_select :game, :date %>
+<br />
+<br />May we suggest:
+<table>
+  <tr><td colspan='3'><hr /></td></tr>
+  <tr>
+    <td>Team1: <%= text_field :team1, :name, :id => 'team1name', :class => 'required' %></td>
+    <td align='center' width='100'>VS</td>
+    <td>Team2: <%= text_field :team2, :name, :id => 'team2name' %></td>
+  </tr>
+  <tr><td colspan='3'><hr /></td></tr>
+<% 0.upto(@max) do |i| %>
+  <tr class="<%= cycle('item_odd', 'item_even') %>">
+    <td align='center'>
+      <%= player1 = @team1.players.at(i) 
+      player1.nickname + ' = ' + player1.strength.to_s if player1 %>
+      <%= hidden_field_tag 'team1[player_ids][]', player1.id if player1 %>
+    </td>
+    <td></td>
+    <td align='center'>
+      <%= player2 = @team2.players.at(i)
+      player2.nickname + ' = ' + player2.strength.to_s if player2 %>
+      <%= hidden_field_tag 'team2[player_ids][]', player2.id if player2 %>
+    </td>
+  </tr>
+<% end %>
+  <tr><td colspan='3'><hr /></td></tr>
+  <tr>
+    <td align='center'>Strength = <%= @team1.potential %></td>
+    <td align='center'><%= submit_tag "Accept" %></td>
+    <td align='center'>Strength = <%= @team2.potential %></td>
+  </tr>
+</table>
+<script>
+function validate() {
+  team1name = document.getElementById('team1name').value;
+  team2name = document.getElementById('team2name').value;
+  if (team1name.length == 0 || team2name.length == 0) {
+    alert('Please enter a name for each team.');
+    return false;
+  }
+  return true;
+}
+</script>  

@@ -1,6 +1,6 @@
 class Game < ActiveRecord::Base
   validates :team1score, :numericality => {:greater_than_or_equal_to => 0}
-  validates :team1score, :numericality => {:greater_than_or_equal_to => 0}
+  validates :team2score, :numericality => {:greater_than_or_equal_to => 0}
   validate :different_teams
 
   def different_teams
