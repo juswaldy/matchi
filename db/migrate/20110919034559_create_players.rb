@@ -5,8 +5,8 @@ class CreatePlayers < ActiveRecord::Migration
       t.string :lastname
       t.string :nickname
       t.string :number
-      t.integer :score
-      t.integer :assist
+      t.integer :score, :default => 0
+      t.integer :assist, :default => 0
 
       t.timestamps
     end
