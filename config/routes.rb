@@ -1,4 +1,6 @@
 Matchi::Application.routes.draw do
+  resources :games
+
   resources :teams
 
   resources :players
