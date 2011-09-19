@@ -10,4 +10,8 @@ class Player < ActiveRecord::Base
     experience = 1 # TODO: This should be the number of times s/he has played
     self.score * 5 + self.assist * 3 + experience
   end
+
+  def fullname
+    firstname + ' ' + lastname
+  end
 end

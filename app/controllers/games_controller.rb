@@ -14,6 +14,9 @@ class GamesController < ApplicationController
   # GET /games/1.json
   def show
     @game = Game.find(params[:id])
+    @team1 = Team.find_by_id(@game.team1id)
+    @team2 = Team.find_by_id(@game.team2id)
+    @max = [@team1.players.to_a.count, @team2.players.to_a.count].max - 1
 
     respond_to do |format|
       format.html # show.html.erb

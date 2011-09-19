@@ -12,7 +12,8 @@
 
 <table>
   <tr>
-    <th>Nickname</th>
+    <th>Player</th>
+    <th>Full Name</th>
     <th>Number</th>
     <th>Score</th>
     <th>Assist</th>
@@ -25,6 +26,7 @@
 <% @team.players.each do |player| %>
   <tr class="<%= cycle('item_odd', 'item_even') %>">
     <td><%= player.nickname %></td>
+    <td><%= player.fullname %></td>
     <td><%= player.number %></td>
     <td><%= player.score %></td>
     <td><%= player.assist %></td>
