@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  firstname: MyString
+  lastname: MyString
+  nickname: MyString
+  number: MyString
+  score: 1
+  assist: 1
+
+two:
+  firstname: MyString
+  lastname: MyString
+  nickname: MyString
+  number: MyString
+  score: 1
+  assist: 1
