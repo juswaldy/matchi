@@ -10,6 +10,31 @@
   <%= @team.score %>
 </p>
 
+<table>
+  <tr>
+    <th>Nickname</th>
+    <th>Number</th>
+    <th>Score</th>
+    <th>Assist</th>
+    <th>Strength</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @team.players.each do |player| %>
+  <tr class="<%= cycle('item_odd', 'item_even') %>">
+    <td><%= player.nickname %></td>
+    <td><%= player.number %></td>
+    <td><%= player.score %></td>
+    <td><%= player.assist %></td>
+    <td><%= player.strength %></td>
+    <td><%= link_to 'Show', player %></td>
+    <td><%= link_to 'Edit', edit_player_path(player) %></td>
+  </tr>
+<% end %>
+</table>
+
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

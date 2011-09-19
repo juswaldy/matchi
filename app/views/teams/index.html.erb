@@ -3,16 +3,20 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Players</th>
     <th>Score</th>
+    <th>Strength</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @teams.each do |team| %>
-  <tr>
+  <tr class="<%= cycle('item_odd', 'item_even') %>">
     <td><%= team.name %></td>
+    <td><%= team.players.count %></td>
     <td><%= team.score %></td>
+    <td><%= team.strength %></td>
     <td><%= link_to 'Show', team %></td>
     <td><%= link_to 'Edit', edit_team_path(team) %></td>
     <td><%= link_to 'Destroy', team, confirm: 'Are you sure?', method: :delete %></td>
