@@ -10,7 +10,7 @@
     <th></th>
   </tr>
 
-<% @games.each do |game| %>
+<% @games.sort_by{|x| [x.date, -(x.team1score + x.team2score)]}.each do |game| %>
   <tr class="<%= cycle('item_odd', 'item_even') %>">
     <td><%= game.date %></td>
     <td><%= Team.find_by_id(game.team1id).name + " (#{game.team1score})"%></td>

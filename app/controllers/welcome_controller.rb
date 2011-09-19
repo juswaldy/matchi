@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @games = Game.all
+    @games = Game.all.sort_by{|x| [x.date, -(x.team1score + x.team2score)]}
   end
 
   def assign(team, player)

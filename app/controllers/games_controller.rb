@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
+    @games = Game.all.sort_by{|x| [x.date, -(x.team1score + x.team2score)]}
 
     respond_to do |format|
       format.html # index.html.erb
