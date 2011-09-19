@@ -16,12 +16,12 @@
     <%= f.date_select :date %>
   </div>
   <div class="field">
-    <%= f.label :team1id %><br />
-    <%= f.number_field :team1id %>
+    <%= f.label 'Team1' %><br />
+    <%= f.collection_select :team1id, Team.all, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :team2id %><br />
-    <%= f.number_field :team2id %>
+    <%= f.label 'Team2' %><br />
+    <%= f.collection_select :team2id, Team.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :team1score %><br />
