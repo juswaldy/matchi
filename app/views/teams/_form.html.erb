@@ -19,6 +19,14 @@
     <%= f.label :score %><br />
     <%= f.number_field :score %>
   </div>
+  <p>
+    <% for player in Player.find(:all) %>
+    <div>
+      <%= check_box_tag "team[player_ids][]", player.id, @team.players.include?(player) %>
+      <%= player.nickname %>
+    </div>
+    <% end %>
+  </p>
   <div class="actions">
     <%= f.submit %>
   </div>

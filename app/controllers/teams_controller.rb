@@ -56,6 +56,7 @@ class TeamsController < ApplicationController
   # PUT /teams/1
   # PUT /teams/1.json
   def update
+    params[:team][:player_ids] ||= []
     @team = Team.find(params[:id])
 
     respond_to do |format|
