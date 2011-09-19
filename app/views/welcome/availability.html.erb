@@ -1,0 +1,13 @@
+<h1>Matchi</h1>
+
+Who's available to play?
+<%= form_tag '/welcome/suggestion', :method => :post  do %>
+  <% Player.find(:all).each do |p| %>
+    <br />
+      <%= check_box_tag "player_ids[]", p.id %>
+      <%= p.nickname %>
+  <% end %>
+  <br />
+  <%= submit_tag "Create teams" %>
+<% end %>
+

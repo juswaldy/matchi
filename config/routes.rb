@@ -6,6 +6,7 @@ Matchi::Application.routes.draw do
   resources :players
 
   get "welcome/index"
+  get "welcome/availability"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

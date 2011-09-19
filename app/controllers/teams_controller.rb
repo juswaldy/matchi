@@ -40,6 +40,7 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
+    params[:team][:player_ids] ||= []
     @team = Team.new(params[:team])
 
     respond_to do |format|
@@ -81,4 +82,5 @@ class TeamsController < ApplicationController
       format.json { head :ok }
     end
   end
+
 end
