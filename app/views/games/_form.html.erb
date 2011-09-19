@@ -20,15 +20,15 @@
     <%= f.collection_select :team1id, Team.all, :id, :name %>
   </div>
   <div class="field">
+    <%= f.label 'Team1 Score' %><br />
+    <%= f.number_field :team1score %>
+  </div>
+  <div class="field">
     <%= f.label 'Team2' %><br />
     <%= f.collection_select :team2id, Team.all, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :team1score %><br />
-    <%= f.number_field :team1score %>
-  </div>
-  <div class="field">
-    <%= f.label :team2score %><br />
+    <%= f.label 'Team2 Score' %><br />
     <%= f.number_field :team2score %>
   </div>
   <div class="actions">
