@@ -18,8 +18,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <div id="banner">
+    <%= @page_title || "Matchi" %>
+  </div>
+  <div id="columns">
+    <div id="links">
+      <a href="/">Home</a><br />
+      <a href="/welcome/availability">New game</a><br />
+      <a href="/players">Players</a><br />
+      <a href="/teams">Teams</a><br />
+      <a href="/games">Old games</a><br />
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>

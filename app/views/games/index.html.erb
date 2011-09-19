@@ -1,24 +1,21 @@
-<h1>Listing games</h1>
+<h1>Old games</h1>
 
 <table>
   <tr>
     <th>Date</th>
-    <th>Team1id</th>
-    <th>Team2id</th>
-    <th>Team1score</th>
-    <th>Team2score</th>
-    <th></th>
+    <th>Team1</th>
+    <th>vs</th>
+    <th>Team2</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @games.each do |game| %>
-  <tr>
+  <tr class="<%= cycle('item_odd', 'item_even') %>">
     <td><%= game.date %></td>
-    <td><%= game.team1id %></td>
-    <td><%= game.team2id %></td>
-    <td><%= game.team1score %></td>
-    <td><%= game.team2score %></td>
+    <td><%= Team.find_by_id(game.team1id).name + " (#{game.team1score})"%></td>
+    <td></td>
+    <td><%= Team.find_by_id(game.team2id).name + " (#{game.team2score})"%></td>
     <td><%= link_to 'Show', game %></td>
     <td><%= link_to 'Edit', edit_game_path(game) %></td>
     <td><%= link_to 'Destroy', game, confirm: 'Are you sure?', method: :delete %></td>
