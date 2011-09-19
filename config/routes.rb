@@ -1,4 +1,6 @@
 Matchi::Application.routes.draw do
+  resources :teams
+
   resources :players
 
   get "welcome/index"
