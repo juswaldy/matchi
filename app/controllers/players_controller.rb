@@ -40,7 +40,7 @@ class PlayersController < ApplicationController
   # POST /players
   # POST /players.json
   def create
-    @player = Player.new(params[:player])
+    @player = Player.new(player_params)
 
     respond_to do |format|
       if @player.save
@@ -59,7 +59,7 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
 
     respond_to do |format|
-      if @player.update_attributes(params[:player])
+      if @player.update(player_params)
         format.html { redirect_to @player, notice: 'Player was successfully updated.' }
         format.json { head :ok }
       else
@@ -81,3 +81,9 @@ class PlayersController < ApplicationController
     end
   end
 end
+
+private
+
+  def player_params
+    params.require(:player).permit(:firstname, :lastname, :nickname, :number, :score, :assist, team_ids: [])
+  end

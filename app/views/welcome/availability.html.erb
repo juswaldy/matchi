@@ -1,6 +1,6 @@
 <h2>Who's available to play?</h2>
 <%= form_tag '/welcome/suggestion', :method => :post  do %>
-  <% Player.find(:all).each do |p| %>
+  <% Player.all.each do |p| %>
     <br />
       <%= check_box_tag "player_ids[]", p.id %>
       <%= p.nickname %>

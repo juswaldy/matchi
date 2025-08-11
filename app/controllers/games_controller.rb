@@ -14,8 +14,8 @@ class GamesController < ApplicationController
   # GET /games/1.json
   def show
     @game = Game.find(params[:id])
-    @team1 = Team.find_by_id(@game.team1id)
-    @team2 = Team.find_by_id(@game.team2id)
+    @team1 = Team.find(@game.team1id)
+    @team2 = Team.find(@game.team2id)
     @max = [@team1.players.to_a.count, @team2.players.to_a.count].max - 1
 
     respond_to do |format|
@@ -43,7 +43,7 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-    @game = Game.new(params[:game])
+    @game = Game.new(game_params)
 
     respond_to do |format|
       if @game.save
@@ -62,7 +62,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
 
     respond_to do |format|
-      if @game.update_attributes(params[:game])
+      if @game.update(game_params)
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
         format.json { head :ok }
       else
@@ -82,5 +82,11 @@ class GamesController < ApplicationController
       format.html { redirect_to games_url }
       format.json { head :ok }
     end
+  end
+
+private
+
+  def game_params
+    params.require(:game).permit(:date, :team1id, :team2id, :team1score, :team2score)
   end
 end

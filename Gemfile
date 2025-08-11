@@ -1,38 +1,21 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'rails', '3.1.0'
+ruby '3.4.4'
 
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+gem 'rails', '~> 7.1.3', '>= 7.1.3.4'
+gem 'sqlite3', '~> 1.4'
+gem 'puma', '~> 6.4'
+gem 'bootsnap', require: false
 
-gem 'sqlite3'
-
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
-end
-
-gem 'jquery-rails'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
+# Testing utilities
 group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
+  gem 'rails-controller-testing'
 end
 
-# For heroku
+group :development, :test do
+  gem 'debug', platforms: [:mri]
+end
+
 group :production do
   gem 'pg'
 end

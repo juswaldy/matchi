@@ -68,7 +68,7 @@ class WelcomeController < ApplicationController
   # Get info for the list of available players,
   # then run different algorithms to get best match.
   def suggestion
-    @players = Player.find_all_by_id(params[:player_ids])
+    @players = Player.where(id: params[:player_ids])
     suggestions = {}
     approaches = []
     approaches.push(:algo1) # Add new algorithms here.
@@ -93,8 +93,8 @@ class WelcomeController < ApplicationController
   # Save game and teams data.
   def accept
     @message = []
-    team1 = Team.new(params[:team1])
-    team2 = Team.new(params[:team2])
+    team1 = Team.new(team_params(:team1))
+    team2 = Team.new(team_params(:team2))
     success = []
     if team1.save
       success.push(team1.name)
@@ -108,7 +108,7 @@ class WelcomeController < ApplicationController
     msg += success.join(' and ')
     msg += " data!"
     @message.push(msg)
-    @game = Game.new(params[:game])
+    @game = Game.new(game_params)
     @game.team1id = team1.id
     @game.team2id = team2.id
     msg = ''
@@ -119,5 +119,15 @@ class WelcomeController < ApplicationController
     end
     msg += ' saving game data!'
     @message.push(msg)
+end
+
+private
+
+  def team_params(key)
+    params.require(key).permit(:name, :score, player_ids: [])
+  end
+
+  def game_params
+    params.require(:game).permit(:date, :team1id, :team2id, :team1score, :team2score)
   end
 end
