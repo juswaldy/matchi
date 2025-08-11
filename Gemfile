@@ -13,10 +13,15 @@ gem 'sqlite3'
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
+  gem 'uglifier', '>= 2.7.2'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.3.5'
+
+# Security updates
+gem 'i18n', '>= 0.8.0'
+gem 'tzinfo', '~> 0.3.61'
+gem 'thor', '>= 1.4.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
