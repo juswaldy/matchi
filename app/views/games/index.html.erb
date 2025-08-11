@@ -10,12 +10,12 @@
     <th></th>
   </tr>
 
-<% @games.sort_by{|x| [x.date, -(x.team1score + x.team2score)]}.each do |game| %>
+<% @games.sort_by { |x| [x.date, -(x.team1score + x.team2score)] }.each do |game| %>
   <tr class="<%= cycle('item_odd', 'item_even') %>">
     <td><%= game.date %></td>
-    <td><%= Team.find_by_id(game.team1id).name + " (#{game.team1score})"%></td>
+    <td><%= Team.find(game.team1id).name + " (#{game.team1score})" %></td>
     <td></td>
-    <td><%= Team.find_by_id(game.team2id).name + " (#{game.team2score})"%></td>
+    <td><%= Team.find(game.team2id).name + " (#{game.team2score})" %></td>
     <td><%= link_to 'Show', game %></td>
     <td><%= link_to 'Edit', edit_game_path(game) %></td>
     <td><%= link_to 'Destroy', game, confirm: 'Are you sure?', method: :delete %></td>

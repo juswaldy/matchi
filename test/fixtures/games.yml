@@ -2,14 +2,14 @@
 
 one:
   date: 2011-09-18
-  team1id: 1
-  team2id: 1
+  team1id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  team2id: <%= ActiveRecord::FixtureSet.identify(:two) %>
   team1score: 1
   team2score: 1
 
 two:
   date: 2011-09-18
-  team1id: 1
-  team2id: 1
+  team1id: <%= ActiveRecord::FixtureSet.identify(:two) %>
+  team2id: <%= ActiveRecord::FixtureSet.identify(:one) %>
   team1score: 1
   team2score: 1

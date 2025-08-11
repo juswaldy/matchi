@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
+  name: TeamOne
   score: 1
 
 two:
-  name: MyString
+  name: TeamTwo
   score: 1

@@ -1,0 +1,2 @@
+# Set a secure secret key for verifying signed cookies.
+Rails.application.config.secret_key_base = 'a1495403884eb84eafa3b92cafba82ccdc5e2b025deada8e7bd66e44a6072e901222253fa1f94d03296368aac366e9ad81ab920ad1c42cdd0963547768407567'

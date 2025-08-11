@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
     @teams = Team.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @teams }
     end
   end
@@ -16,18 +16,17 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @team }
     end
   end
 
   # GET /teams/new
-  # GET /teams/new.json
   def new
     @team = Team.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @team }
     end
   end
@@ -38,41 +37,36 @@ class TeamsController < ApplicationController
   end
 
   # POST /teams
-  # POST /teams.json
   def create
-    params[:team][:player_ids] ||= []
-    @team = Team.new(params[:team])
+    @team = Team.new(team_params)
 
     respond_to do |format|
       if @team.save
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
         format.json { render json: @team, status: :created, location: @team }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @team.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /teams/1
-  # PUT /teams/1.json
+  # PATCH/PUT /teams/1
   def update
-    params[:team][:player_ids] ||= []
     @team = Team.find(params[:id])
 
     respond_to do |format|
-      if @team.update_attributes(params[:team])
+      if @team.update(team_params)
         format.html { redirect_to @team, notice: 'Team was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @team.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /teams/1
-  # DELETE /teams/1.json
   def destroy
     @team = Team.find(params[:id])
     @team.destroy
@@ -83,4 +77,9 @@ class TeamsController < ApplicationController
     end
   end
 
+  private
+
+  def team_params
+    params.require(:team).permit(:name, :score, player_ids: [])
+  end
 end
