@@ -80,10 +80,10 @@ class PlayersController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  private
+
+    def player_params
+      params.require(:player).permit(:firstname, :lastname, :nickname, :number, :score, :assist, team_ids: [])
+    end
 end
-
-private
-
-  def player_params
-    params.require(:player).permit(:firstname, :lastname, :nickname, :number, :score, :assist, team_ids: [])
-  end
