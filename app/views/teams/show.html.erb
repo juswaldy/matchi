@@ -31,7 +31,7 @@
     <td><%= player.score %></td>
     <td><%= player.assist %></td>
     <td><%= player.strength %></td>
-    <td><%= link_to 'Show', player %></td>
+    <td><%= link_to 'Show', player_path(player.id) %></td>
     <td><%= link_to 'Edit', edit_player_path(player) %></td>
   </tr>
 <% end %>
