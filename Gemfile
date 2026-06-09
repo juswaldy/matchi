@@ -4,7 +4,7 @@ ruby '3.4.4'
 
 gem 'rails', '~> 7.2', '>= 7.2.3.1'
 gem 'sqlite3', '~> 1.4'
-gem 'puma', '~> 6.4'
+gem 'puma', '~> 7.2'
 gem 'bootsnap', require: false
 
 # Testing utilities
